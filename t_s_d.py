@@ -103,7 +103,8 @@ def get_vowels_count(string):
 
 def oldest(people):
   # return the maximum of values
-  return max(people.values())
+  max_val =  max(people.values())
+  return next(k for k,v in people.items() if v == max_val)
 
 def oldest_(people):
   # declare max as zero
