@@ -34,6 +34,12 @@ class Linked_list:
       print(current_node.data)
       current_node = current_node.next
     
+  def search():
+    pass
+
+  def delete():
+    pass
+
 my_linked_list = Linked_list()
 my_linked_list.insert_at_start(first)
 my_linked_list.traverse()
