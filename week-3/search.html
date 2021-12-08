@@ -71,6 +71,8 @@
   <p>A hash table is a data structure that stores data in key-value pairs. The key is used to look up the value. The hash table is a good data structure to use when you need to look up values quickly.</p>
   <h1>Sorting</h1>
   <p>Sorting is the process of rearranging the elements of an array so that they are in some kind of order. The most common sorting algorithms are bubble sort, selection sort, insertion sort, and merge sort.</p>
+  <p>Types of sorting algorithms</p>
+  <p>Bubble sort is a sorting algorithms works by repeatedly swapping adjacent values until the whole list is sorted.</p>
   <p>The following code demonstrates the bubble sort algorithm:</p>
   <pre>
     <code>
@@ -91,5 +93,95 @@
       }
     </code>
   </pre>
+  <p>Selection sort works by selecting the smallest item in each iteration and placing it at the beginning of an unsorted list.</p>
+  <p>The following code demonstrates the selection sort algorithm:</p>
+  <pre>
+    <code>
+      function selectionSort(arr) {
+        var min;
+        for (var i = 0; i < arr.length; i++) {
+          min = i;
+          for (var j = i + 1; j < arr.length; j++) {
+            if (arr[j] > arr[min]) {
+              min = j;
+            }
+          }
+          if (min !== i) {
+            var temp = arr[i];
+            arr[i] = arr[min];
+            arr[min] = temp;
+          }
+        }
+        return arr;
+      }
+    </code>
+  </pre>
+  <p>Quick sort works by selecting a pivot element then sorting items on its left and right. The process is repeated until the whole list is sorted.</p>
+  <p>The following code demonstrates quick sort algorithm</p>
+  <pre>
+    <code>
+      function quickSort(arr) {
+        if (arr.length <= 1) {
+          return arr;
+        }
+        var pivot = arr.shift();
+        var left = [];
+        var right = [];
+        for (var i = 0; i < arr.length; i++) {
+          if (arr[i] < pivot) {
+            left.push(arr[i]);
+          } else {
+            right.push(arr[i]);
+          }
+        }
+        return quickSort(left).concat(pivot, quickSort(right));
+      }
+    </code>
+    </pre>
+  <p>The following code demonstrates the insertion sort algorithm:</p>
+  <pre>
+    <code>
+      function insertionSort(arr) {
+        for (var i = 1; i < arr.length; i++) {
+          var temp = arr[i];
+          for (var j = i - 1; j >= 0 && arr[j] > temp; j--) {
+            arr[j + 1] = arr[j];
+          }
+          arr[j + 1] = temp;
+        }
+        return arr;
+      }
+    </code>
+  </pre>
+  <p>The following code demonstrates the merge sort algorithm:</p>
+  <pre>
+    <code>
+      function mergeSort(arr) {
+        if (arr.length === 1) {
+          return arr;
+        }
+        var mid = Math.floor(arr.length / 2);
+        var left = arr.slice(0, mid);
+        var right = arr.slice(mid);
+        return merge(mergeSort(left), mergeSort(right));
+      }
+      function merge(left, right) {
+        var result = [];
+        while (left.length && right.length) {
+          if (left[0] <= right[0]) {
+            result.push(left.shift());
+          } else {
+            result.push(right.shift());
+          }
+        }
+        while (left.length) {
+          result.push(left.shift());
+        }
+        while (right.length) {
+          result.push(right.shift());
+        }
+        return result;
+      }
+    </code>
 </body>
 </html>
