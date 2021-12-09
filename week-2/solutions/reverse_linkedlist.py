@@ -32,7 +32,7 @@ class Linked_list:
     node.next = current.next
     current.next = node
 
-  def reverse(self, segment):
+  def reverse(self):
     prev_node = None
     current = self.head
     next_node = None
@@ -52,14 +52,48 @@ class Linked_list:
         current = current.next
       return counter
 
-  def segmentation(self):
-    segment_size = self.__sizeof__()
-    self.reverse(segment_size)
-
+  def reverse_segment(self):
+    ans=self
+    s=self
+    f=self
+    while f.next and f.next.next:
+        f=f.next.next
+        s=s.next
+    nxt=s.next
+    s.next = None
+    s = nxt
+    pr = None
+    nxt = s.next
+    while(s is not None):
+        nxt = s.next
+        s.next = pr
+        pr = s
+        s = nxt
+    cnt=1
+    temp = pr
+    pre = self
+    while head:
+        if cnt%2==1:
+            x=pr.data
+            pr.data = head.data
+            head.data=x
+        pre=head
+        head=head.next
+        pr=pr.next
+        cnt=cnt+1
+    pr = None
+    nxt = temp.next
+    while(temp is not None):
+        nxt = temp.next
+        temp.next = pr
+        pr = temp
+        temp = nxt
+    pre.next = pr
+    return ans
 train = Linked_list()
 train.insert_at_start('umus')
 train.insert(1, 'alone')
 train.insert(2, 'lyi')
 train.insert(3, 'fine')
 train.insert(4, 'we')
-train.reverse()
+train.reverse_segment()

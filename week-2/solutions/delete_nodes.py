@@ -59,10 +59,12 @@ class Linked_list:
 
 train = Linked_list()
 train.insert_at_start(1)
-train.insert(1, 2)
+train.insert(1, 9)
 train.insert(2, 3)
-train.insert(3, 4)
-train.insert(4, 6)
+train.insert(3, 11)
+train.insert(4, 5)
 train.insert(5, 7)
-print(train.deleteEven())
-train.display()
+new_head = (train.deleteEven())
+train_ = Linked_list()
+train_.head = new_head
+train_.display()
