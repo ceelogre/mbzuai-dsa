@@ -1,3 +1,5 @@
+import random
+import time
 # bubble sort algorithm
 def bubble_sort(L):
   swapped = True
@@ -21,7 +23,10 @@ def selection_sort(L):
       L[i], L[max_] = L[max_], L[i]
 
   return L
-L = [43, 93, 96, 6,34,78,5, 43]
+#L = [43, 93, 96, 6,34,78,5, 43]
+# generate a large dataset and put it in a list variable L
+L = [random.randint(0,100) for i in range(10000)]
+
 
 def quick_sort(L):
   if len(L) <= 1:
@@ -39,7 +44,37 @@ def quick_sort(L):
   
   return quick_sort(left) + [pivot] + quick_sort(right)
 
+def merge_sort(L):
+  # stopping condition
+  if len(L) == 1:
+    return L
+  mid = len(L) // 2
+  left = L[0:mid]
+  right = L[mid:]
+  return merge(merge_sort(left), merge_sort(right))
+
+def merge(left, right):
+  result = []
+  while len(left) != 0 and len(right) != 0:
+    if left[0] <= right[0]:
+      result.append(left.pop(0))
+    else:
+      result.append(right.pop(0))
+  while len(left) != 0:
+    result.append(left.pop(0))
+  while len(right) != 0:
+    result.append(right.pop(0))
+
+  return result
+
 # print(bubble_sort(L)) => [5, 6, 34, 43, 78, 93, 96]
 # print(bubble_sort(L))
 #print(selection_sort(L))
-print(quick_sort(L))
+print(time.ctime())
+(merge_sort(L))
+print(time.ctime())
+
+print('-----------------\n')
+print(time.ctime())
+(bubble_sort(L))
+print(time.ctime())
