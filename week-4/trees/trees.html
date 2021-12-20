@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trees - DSA</title>
+</head>
+<body>
+  <h1>Trees Data Structure</h1>
+  <p>Trees are a type of non-linear data structure where data is arranged in a tree-like structure. They are used to store data in a hierarchical manner</p>
+  <p>Linear data structure like arrays pose a challenge because time complexity increases as the size increases.</p>
+  <ul>
+    <li>The root of the tree is called the <i>root node</i></li>
+    <li>The children of a node are called the <i>child nodes</i></li>
+    <li>The next sibling of a node is called the <i>next node</i></li>
+    <li>The parent of a node is called the <i>parent node</i></li>
+    <li>The previous sibling of a node is called the <i>previous node</i></li>
+    <li>The link between any two nodes is an <i>edge</i></li>
+    <li>The leaves of a tree are called <i>leaf nodes</i></li>
+    <li>A tree can be either <i>unbalanced</i> or <i>balanced</i></li>
+    <li>A tree can be either <i>complete</i> or <i>non-complete</i></li>
+    <li>A tree can be either <i>full</i> or <i>non-full</i></li>
+    <li>A tree can be either <i>perfect</i> or <i>non-perfect</i></li>
+    <li>A tree can be either <i>symmetric</i> or <i>non-symmetric</i></li>
+    <li>A tree can be either <i>dense</i> or <i>non-dense</i></li>
+    <li>A tree can be either <i>sparse</i> or <i>non-sparse</i></li>
+    <li>A tree can be either <i>doubly-linked</i> or <i>singly-linked</i></li>
+    <li>A tree can be either <i>circular</i> or <i>non-circular</i></li>
+  </ul>
+  
+  <h4>Tree traversal</h4>
+  <p>There are three types of tree traversal:</p>
+  <ul>
+    <li>Inorder traversal</li>
+    <li>Preorder traversal</li>
+    <li>Postorder traversal</li>
+  </ul>
+  <img src="./tree_traversal_tree-traversal.webp" alt="tree traversal" width="500">
+  <h4>Tree traversal - Inorder traversal</h4>
+  <p>Inorder traversal is done by recursively traversing the left subtree, printing the root and then traversing the right subtree.</p>
+  <pre>
+    <code>
+      // Inorder traversal
+      void inorder(Node *root) {
+        if (root != NULL) {
+          inorder(root->left);
+          cout << root->data << " ";
+          inorder(root->right);
+        }
+      }
+    </code>
+    <code>5 12 6 1 9</code>
+  </pre>
+  <h4>Tree traversal - Preorder traversal</h4>
+  <p>Pre-order traversal is done by visiting the root node, then the left subtree and finally the right subtree.</p>
+  <pre>
+    <code>
+      // Preorder traversal
+      void preorder(Node *root) {
+        if (root != NULL) {
+          cout << root->data << " ";
+          preorder(root->left);
+          preorder(root->right);
+        }
+      }
+    </code>
+    <code>1 12 5 6 9</code>
+  </pre>
+  <h4>Tree traversal - Postorder traversal</h4>
+  <p>Post-order traversal is done by recursively traversing the left subtree, then the right subtree and finally printing the root node.</p>
+  <pre>
+    <code>
+      // Postorder traversal
+      void postorder(Node * root){
+        if (root != Null) {
+          postorder(root->left)
+          postorder(root -> right)
+          cout << root-> data << ' ';
+        }
+      }
+    </code>
+    <code>5 6 12 9 1</code>
+  </pre>
+  <h4>Types of tress</h4>
+  <ul>
+    <li>Binary tree</li>
+    <li>Red-black tree</li>
+    <li>AVL tree</li>
+    <li>Splay tree</li>
+    <li>Treap</li>
+    <li>Splay-tree</li>
+  </ul>
+  <h4>Binary tree</h4>
+  <p>A binary tree is a type of tree where each node has at most two children.</p>
+</body>
+</html>
