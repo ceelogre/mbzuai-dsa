@@ -19,9 +19,11 @@ def isPresent (root,val):
   if val < root.value:
     if root.left is None:
       return 0
-    return isPresent(root.left, val)
+    else:
+      return isPresent(root.left, val)
   elif val > root.value:
     if root.right is None:
       return 0
-    return isPresent(root.right, val)
+    else:
+      return isPresent(root.right, val)
   else: return 1
