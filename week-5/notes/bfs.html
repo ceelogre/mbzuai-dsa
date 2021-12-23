@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BFS - DSA </title>
+</head>
+<body>
+  <h1>Breadth First Search Algorithm</h1>
+  <p> BFS is a graph traversal algorithm that explores all the neighbors of a node and then moves to the next level of the graph. It is often used to find the shortest path between two nodes in a graph. </p>
+  <p> The algorithm is similar to Depth First Search, but it uses a queue instead of a stack. </p>
+  <p>Example:</p>
+  <img src="bfs.png" alt="BFS Algorithm">
+  <p>Here's an implementation of the BFS algorithm in JavaScript:</p>
+  <pre><code class="language-javascript">
+    function bfs(graph, start) {
+      const visited = {};
+      const queue = [start];
+      while (queue.length) {
+        const node = queue.shift();
+        if (!visited[node]) {
+          visited[node] = true;
+          queue.push(...graph[node]);
+        }
+      }
+      return visited;
+    }
+  </code></pre>
+  <p>As you can see, the BFS algorithm is similar to the Depth First Search algorithm, but it uses a queue instead of a stack. </p>
+  
+</body>
+</html>

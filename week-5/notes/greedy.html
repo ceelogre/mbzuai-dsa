@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Greedy Algorithms - DSA</title>
+</head>
+<body>
+  <h1>Greedy Algorithms</h1>
+  <p>Greedy algorithms are algorithms that make decisions based on the current state of the problem. They try to come up with a solution at a given stage and never reverses in case the decision made was not the most optimal.</p>
+  <p>Some examples of greedy algorithms are</p>
+  <ul>
+    <li>Dijkstra's algorithm</li>
+    <li>Prim's algorithm</li>
+    <li>Kruskal's algorithm</li>
+  </ul>
+  <p>Greedy algorithms are often used in the following problems:</p>
+  <ul>
+    <li>Scheduling problems</li>
+    <li>Finding the best way to maximize the profit</li>
+    <li>Finding the best way to minimize the cost</li>
+    <li>Finding the best way to minimize the time</li>
+    <li>Finding the best way to minimize the distance</li>
+  </ul>
+  <h3>Disadvantage</h3>
+  <p>Greedy algorithms solutions are not always the most optimal. This is because the algorithm is focused on just  finding a solution and not on finding the optimal solution. </p>
+  <h4>Example: Find the longest path using greedy algorithm</h4>
+  <img src="greedy.png" alt="Greedy Algorithm">
+  <h4>Steps of a greedy algorithm</h4>
+  <ol>
+    <li>Find the node with the highest value</li>
+    <li>Add it to the solution</li>
+    <li>Remove it from the graph</li>
+  </ol>
+
+  <p>Here's another example of a greedy algorithm that finds the minimum number of coins needed to make change for a given amount of money:</p>
+  <p>Here's an implementation of the greedy algorithm in JavaScript:</p>
+  <pre><code class="language-javascript">
+    function greedy(coins, amount) {
+      const sortedCoins = coins.sort((a, b) => b - a);
+      let count = 0;
+      for (let coin of sortedCoins) {
+        while (amount >= coin) {
+          amount -= coin;
+          count++;
+        }
+      }
+      return count;
+    }
+  </code></pre>
+  <p>The algorithm visits each coin in the array and subtracts it from the amount until the amount is less than the coin. It then increments the count of the coin. </p>
+
+</body>
+</html>
