@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DFS - DSA</title>
+</head>
+<body>
+  <h1>Depth First Search Algorithm</h1>
+  <p>Often abbreviated as DFS, the depth-first search algorithm is a graph traversal algorithm that explores all paths between any two given vertices. The algorithm is also known as a graph-search algorithm because it is used to search for a path in a graph.</p>
+  <p>The algorithm is recursive and has the following steps:</p>
+  <ol>
+    <li>Mark the current node as visited.</li>
+    <li>Explore all the neighbors of the current node.</li>
+    <li>If the current node has no unvisited neighbors, backtrack to the previous node.</li>
+  </ol>
+  <h3>Example</h3>
+  <img src="dfs.png" alt="DFS Algorithm">
+  <p>Here's an implementation of the DFS algorithm in JavaScript:</p>
+  <pre><code class="language-javascript">
+    function dfs(graph, start) {
+      const visited = {};
+      const stack = [start];
+      while (stack.length) {
+        const node = stack.pop();
+        if (!visited[node]) {
+          visited[node] = true;
+          stack.push(...graph[node]);
+        }
+      }
+      return visited;
+    }
+  </code></pre>
+  <p>After finding all connected graph nodes, it becomes easy to perform other operations like find a path between two nodes and finding the shortest path among others.</p>
+  <p>Example: See VS code</p>
+</body>
+</html>
